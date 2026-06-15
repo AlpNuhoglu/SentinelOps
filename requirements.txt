@@ -1,24 +1,12 @@
-# Core ML
-torch>=2.0.0
-numpy>=1.24.0
-
-# RAG / API
-fastapi>=0.110.0
-uvicorn>=0.27.0
-httpx>=0.27.0
-pydantic>=2.0.0
-
-# Config
-PyYAML>=6.0
-
-# Testing & quality
-pytest>=8.0.0
-mypy>=1.9.0
-flake8>=7.0.0
-types-PyYAML>=6.0.0
-
-# Optional real-inference stack (enabled via config mode: real)
-# Uncomment to use real bge-large-en embeddings / langchain:
-# sentence-transformers>=2.5.0
-# langchain>=0.1.0
-# langchain-community>=0.0.30
+# Dependencies are now declared canonically in pyproject.toml and pinned in uv.lock.
+#
+#   Runtime deps ............ [project.dependencies]
+#   Dev/test/lint tools ..... [dependency-groups] dev
+#   Real-inference stack .... [project.optional-dependencies] real
+#
+# Recommended (reproducible, uses uv.lock):
+#   uv sync --locked --dev
+#
+# Plain pip alternative (resolves fresh, no lockfile):
+#   pip install -e .            # runtime only
+#   pip install -e '.[real]'    # + real-inference stack
