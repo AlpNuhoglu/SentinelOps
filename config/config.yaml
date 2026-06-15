@@ -1,0 +1,48 @@
+# SentinelOps configuration
+
+anonymizer:
+  # Deterministic salt for IP pseudonymization. In production, load from a secret manager.
+  ip_salt: "sentinelops-kvkk-bddk-salt-2026"
+
+model:
+  vocab_size: 64          # number of distinct log keys (auto-grown from data, capped)
+  embedding_dim: 32
+  conv_channels: 64
+  kernel_size: 3
+  dilation: 1
+  lstm_hidden: 64
+  lstm_layers: 1
+  dropout: 0.1
+  window_size: 10         # w in X = <k_{t-w}, ..., k_{t-1}> -> Y = k_t
+
+training:
+  epochs: 30
+  batch_size: 16
+  learning_rate: 0.005
+  l2_lambda: 0.0001       # lambda in L2 regularization (-> optimizer weight_decay)
+  seed: 42
+
+inference:
+  # Two-Step Inference: Stage-1 threshold. risk < threshold => "Safe (Normal)", skip LLM/RAG.
+  risk_threshold: 0.35
+
+rag:
+  embeddings_mode: "hash"     # "hash" (default, fast/offline) | "real" (bge-large-en HF)
+  hf_model_name: "BAAI/bge-large-en-v1.5"
+  embedding_dim: 256          # used by the hash embedder
+  top_k: 3
+  error_corpus_dir: "data/error_corpus"
+  system_docs_dir: "data/system_docs"
+
+llm:
+  mode: "mock"                # "mock" (built-in deterministic) | "ollama"
+  base_url: "http://127.0.0.1:8088/v1"
+  model: "qwen2.5-7b-instruct"
+  mock_host: "127.0.0.1"
+  mock_port: 8088
+
+audit:
+  db_path: "config/audit_log.db"
+
+messaging:
+  topic: "logs.incoming"

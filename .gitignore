@@ -1,0 +1,39 @@
+#Python Virtual Environments
+.venv/
+venv/
+ENV/
+
+#Python compiled bytecode & metadata
+pycache/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+
+#IDEs and OS metadata
+.DS_Store
+.idea/
+.vscode/
+
+#Local Tooling & Caches
+.mypy_cache/
+.pytest_cache/
+.uv/
+
+#Environment Variables & Secrets (Critical for Security)
+.env
+.env.local
+.env.*
+!.env.example
+
+#Runtime Artifacts & Databases (Compliance & Privacy)
+config/audit_log.db
+*.db
+src/models/artifacts/
+*.pt
+vocab.json
+
+#Build and Distribution
+build/
+dist/
+

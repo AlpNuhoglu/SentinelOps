@@ -1,0 +1,14 @@
+2026-06-15T08:00:00.001Z INFO  service=payment-v2 node=10.20.30.40 user=ahmet.yilmaz@bank.com.tr msg="request received" key=REQ_RECEIVED
+2026-06-15T08:00:00.045Z INFO  service=payment-v2 node=10.20.30.40 msg="auth validated card=4242 4242 4242 4242" key=AUTH_OK
+2026-06-15T08:00:00.090Z INFO  service=payment-v2 node=10.20.30.40 iban=TR330006100519786457841326 msg="ledger updated" key=LEDGER_OK
+2026-06-15T08:00:00.140Z INFO  service=payment-v2 node=10.20.30.40 msg="response sent" key=RESP_SENT
+2026-06-15T08:00:01.001Z INFO  service=payment-v2 node=10.20.30.41 msg="request received" key=REQ_RECEIVED
+2026-06-15T08:00:01.050Z INFO  service=payment-v2 node=10.20.30.41 msg="auth validated" key=AUTH_OK
+2026-06-15T08:00:01.095Z INFO  service=payment-v2 node=10.20.30.41 msg="ledger updated" key=LEDGER_OK
+2026-06-15T08:00:01.150Z INFO  service=payment-v2 node=10.20.30.41 msg="response sent" key=RESP_SENT
+2026-06-15T08:05:10.001Z WARN  service=payment-v2 node=10.20.30.40 msg="heap usage rising 78%" key=MEM_PRESSURE
+2026-06-15T08:05:11.002Z WARN  service=payment-v2 node=10.20.30.40 msg="heap usage rising 91%" key=MEM_PRESSURE
+2026-06-15T08:05:12.003Z ERROR service=payment-v2 node=10.20.30.40 msg="java.lang.OutOfMemoryError: Java heap space" key=OOM_KILL
+2026-06-15T08:05:12.050Z ERROR service=payment-v2 node=10.20.30.40 msg="container terminated reason=OOMKilled" key=OOM_KILL
+2026-06-15T08:05:12.100Z ERROR service=payment-v2 node=10.20.30.40 msg="readiness probe failed" key=PROBE_FAIL
+2026-06-15T08:05:13.000Z FATAL service=payment-v2 node=10.20.30.40 msg="pod crashloopbackoff" key=CRASHLOOP
